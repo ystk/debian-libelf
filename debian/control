@@ -12,7 +12,7 @@ Priority: optional
 Conflicts: libelf, libelf0 (<= 0.6.4-5)
 Depends: ${shlibs:Depends}
 Description: an ELF object file access library
- The elf library provides routines to access, and manipulate, Elf object
+ libelf provides routines to access and manipulate ELF object
  files. It is still not complete, but is required for a number of programs,
  such as Eli (a state of the art compiler generation system), and Elk (the
  Extension Language Kit - an implementation of the Scheme programming
@@ -29,7 +29,7 @@ Priority: optional
 Depends: libelfg0 (= ${Source-Version}), libc6-dev
 Conflicts: libelf-dev, libelf0-dev, libelf1-dev
 Description: an ELF object file access library: development files
- The elf library provides routines to access, and manipulate, Elf object
+ libelf provides routines to access and manipulate ELF object
  files. It is still not complete, but is required for a number of programs,
  such as Eli (a state of the art compiler generation system), and Elk (the
  Extension Language Kit - an implementation of the Scheme programming

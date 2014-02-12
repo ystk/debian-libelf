@@ -1,3 +1,16 @@
+libelf (0.8.13-3) unstable; urgency=low
+
+  * Tweaked description to be more correct. (Closes: #631624)
+
+ -- Alex Pennace <alex@pennace.org>  Mon, 27 Jun 2011 17:49:04 -0400
+
+libelf (0.8.13-2) unstable; urgency=low
+
+  * Patch aclocal.m4 and autoreconf to allow cross-building to work for
+    armhf, thanks Steve McIntyre. (Closes: #630378)
+
+ -- Alex Pennace <alex@pennace.org>  Mon, 13 Jun 2011 11:33:33 -0400
+
 libelf (0.8.13-1) unstable; urgency=low
 
   * Acknowledge NMU, thanks Matthias Klose. (closes: #525777, 548865).

@@ -237,7 +237,7 @@ AC_DEFUN(mr_ENABLE_SHARED, [
     case "$host" in
       *-linux*|*-gnu*)
 	if test "$GCC" = yes; then
-	  mr_TARGET_ELF
+	  mr_cv_target_elf=yes
 	  if test "$mr_cv_target_elf" = yes; then
 	    PICFLAGS='-fPIC -DPIC'
 	    if test "$mr_enable_gnu_names" = yes
