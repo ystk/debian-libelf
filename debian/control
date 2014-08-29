@@ -2,7 +2,7 @@ Source: libelf
 Section: devel
 Priority: optional
 Maintainer: Alex Pennace <alex@pennace.org>
-Build-Depends: gettext, debhelper (>= 4)
+Build-Depends: gettext, debhelper (>= 5), dpkg-dev (>= 1.16)
 Standards-Version: 3.6.2.2
 
 Package: libelfg0
@@ -10,7 +10,9 @@ Architecture: any
 Section: libs
 Priority: optional
 Conflicts: libelf, libelf0 (<= 0.6.4-5)
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}
+Multi-Arch: same
 Description: an ELF object file access library
  libelf provides routines to access and manipulate ELF object
  files. It is still not complete, but is required for a number of programs,

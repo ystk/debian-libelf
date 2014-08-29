@@ -5,6 +5,8 @@
 DEB_HOST_GNU_TYPE	?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 DEB_BUILD_GNU_TYPE	?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
 CFLAGS = -Wall -g -D_REENTRANT
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
@@ -21,7 +23,8 @@ build-stamp:
 	# --enable-compat per bug 477025
 	./configure --prefix=/usr --enable-shared \
 	--enable-compat \
-	  --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE)
+	  --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) \
+	  --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)
 	# I wonder what configure is thinking. Lets find out...
 	-cat ./config.status Makefile lib/Makefile po/Makefile libelf.pc \
 	config.h lib/sys_elf.h
@@ -36,11 +39,14 @@ clean:
 	-make distclean
 # distclean misses w32/Makefile; kludge around it.
 	-rm -f w32/Makefile
-	dh_clean build-stamp
+	dh_clean build-stamp debian/libelfg0-dev.links
+
+debian/%.links: debian/%.links.in
+	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/'g $< >$@
 
 binary: binary-arch binary-indep
 
-binary-arch: build 
+binary-arch: debian/libelfg0-dev.links build 
 	dh_testdir
 	dh_testroot
 	dh_clean -k

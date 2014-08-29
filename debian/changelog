@@ -1,3 +1,25 @@
+libelf (0.8.13-5) unstable; urgency=low
+
+  * Fix "empty package" by requiring a multilib-capable dpkg-dev in
+    Build-Depends and rebuilding (Closes: #730705)
+
+ -- Alex Pennace <alex@pennace.org>  Sat, 30 Nov 2013 21:44:22 -0500
+
+libelf (0.8.13-4) unstable; urgency=low
+
+  * Upload to unstable (Closes: #690793, #693996)
+
+ -- Alex Pennace <alex@pennace.org>  Tue, 19 Nov 2013 21:20:23 -0500
+
+libelf (0.8.13-4~1) experimental; urgency=low
+
+  * Patch to implement multilib support, thanks to Iain Lane.
+    (Closes: #690793)
+  * Update config.{sub,guess} for arm64, thanks to Wookey
+    (Closes: #693996)
+
+ -- Alex Pennace <alex@pennace.org>  Sun, 25 Nov 2012 00:48:02 -0500
+
 libelf (0.8.13-3) unstable; urgency=low
 
   * Tweaked description to be more correct. (Closes: #631624)
